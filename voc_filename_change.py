@@ -1,5 +1,6 @@
 import os
 import xml.etree.ElementTree as ET
+import sys
 
 # : Batch modify the label name of the xml tag file in the VOC data set
 def changelabelname(inputpath):
@@ -22,5 +23,10 @@ def changelabelname(inputpath):
             pass
 
 if __name__ == '__main__':
-    inputpath = '../dataset/annotations'
-    changelabelname(inputpath)
+
+    if len(sys.argv) == 2:
+        inputpath = str(sys.argv[1])
+        changelabelname(inputpath)
+    
+    else:
+        print("Please check your syntax")
